@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">KickOff! - League Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen">
+    <header class="bg-gray-900 dark:bg-gray-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+            <button id="back-button" class="p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-900 transition-colors mr-4" aria-label="Go back">
+                <i class="fas fa-arrow-left text-xl text-white"></i>
+            </button>
+
+            <div class="flex items-center flex-shrink-0">
+                <i class="fas fa-futbol text-2xl text-blue-500 mr-2"></i>
+                <h1 class="text-2xl font-bold" id="league-header-name">League</h1>
+            </div>
+
+            <div class="flex-grow mx-4 relative hidden md:block max-w-xl">
+                <input type="text" placeholder="Search matches, competitions, teams, players, and more" 
+                       class="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-700 dark:bg-gray-900 border border-gray-600 dark:border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="signup.html" class="flex items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                    <i class="fas fa-sign-in-alt mr-2"></i>
+                    SIGN IN
+                </a>
+                <button class="p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-900 transition-colors hidden md:block" aria-label="Favorites">
+                    <i class="fas fa-star text-xl text-yellow-400"></i>
+                </button>
+                <button class="p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-900 transition-colors hidden md:block" aria-label="Settings">
+                    <i class="fas fa-cog text-xl text-gray-400"></i>
+                </button>
+                <button id="theme-toggle" class="theme-toggle p-2 rounded-full hover:bg-gray-700 dark:hover:bg-gray-900 transition-colors" aria-label="Toggle theme">
+                    <i class="fas fa-moon dark:hidden text-gray-400"></i>
+                    <i class="fas fa-sun hidden dark:inline text-white"></i>
+                </button>
+            </div>
+
+            <button id="mobile-menu-toggle" class="md:hidden text-white ml-4" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <div id="secondary-nav-mobile-menu" class="bg-gray-800 dark:bg-gray-900 py-2 border-t border-gray-700 dark:border-gray-800 hidden md:block">
+            <div class="container mx-auto px-4 flex flex-wrap items-center justify-between text-sm">
+                <nav class="flex items-center space-x-6 overflow-x-auto no-scrollbar py-1">
+                    <a href="index.html" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-home"></i><span>Home</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-star"></i><span>Favourites</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-users"></i><span>Teams</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-user-alt"></i><span>Players</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-calendar-alt"></i><span>Matches</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-trophy"></i><span>Tournaments</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-newspaper"></i><span>News</span>
+                    </a>
+                    <a href="#" class="nav-item flex items-center space-x-2 text-gray-300 hover:text-white transition-colors pb-1">
+                        <i class="fas fa-user-circle"></i><span>Profiles</span>
+                    </a>
+                </nav>
+                <div class="flex items-center mt-2 md:mt-0 ml-auto md:ml-0">
+                    <span class="text-xs font-semibold text-gray-400 mr-2">DROPPING ODDS</span>
+                    <i class="fas fa-chart-line text-blue-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 flex items-center text-gray-800 dark:text-gray-100">
+            <img id="league-logo" src="" alt="League Logo" class="h-12 w-12 mr-4 object-contain">
+            <span id="league-title"></span>
+        </h1>
+
+        <div class="flex border-b border-gray-300 dark:border-gray-700 mb-8">
+            <button class="tab-button px-6 py-3 text-lg font-semibold border-b-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-500 bg-gray-50 dark:bg-gray-800 rounded-t-lg transition-colors" data-tab="matches">Matches</button>
+            <button class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors" data-tab="teams">Teams</button>
+            <button class="tab-button px-6 py-3 text-lg font-semibold text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors" data-tab="standings">Standings</button>
+        </div>
+
+        <div id="tab-content-matches" class="tab-content">
+            <h2 class="text-2xl font-bold mb-6 flex items-center text-gray-800 dark:text-gray-100">
+                <i class="fas fa-calendar-alt mr-3 text-blue-500"></i> League Matches
+            </h2>
+            <div id="league-matches-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div id="league-matches-loading" class="col-span-full flex flex-col justify-center items-center py-12">
+                    <div class="loading-spinner h-16 w-16 border-6 border-blue-500 border-t-transparent rounded-full mb-4"></div>
+                    <p class="text-lg font-medium text-gray-600 dark:text-gray-300">Loading matches...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-teams" class="tab-content hidden">
+            <h2 class="text-2xl font-bold mb-6 flex items-center text-gray-800 dark:text-gray-100">
+                <i class="fas fa-users mr-3 text-green-500"></i> League Teams
+            </h2>
+            <div id="league-teams-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div id="league-teams-loading" class="col-span-full flex flex-col justify-center items-center py-12">
+                    <div class="loading-spinner h-16 w-16 border-6 border-blue-500 border-t-transparent rounded-full mb-4"></div>
+                    <p class="text-lg font-medium text-gray-600 dark:text-gray-300">Loading teams...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-standings" class="tab-content hidden">
+            <h2 class="text-2xl font-bold mb-6 flex items-center text-gray-800 dark:text-gray-100">
+                <i class="fas fa-trophy mr-3 text-yellow-500"></i> League Standings
+            </h2>
+            <div id="league-standings-container">
+                 <div id="league-standings-loading" class="col-span-full flex flex-col justify-center items-center py-12">
+                    <div class="loading-spinner h-16 w-16 border-6 border-blue-500 border-t-transparent rounded-full mb-4"></div>
+                    <p class="text-lg font-medium text-gray-600 dark:text-gray-300">Loading standings...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-950 dark:bg-black border-t border-gray-800 mt-16 text-gray-400">
+        <div class="container mx-auto px-4 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-futbol text-3xl text-blue-500"></i>
+                        <h2 class="text-2xl font-bold text-white">KickOff!</h2>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-4">Your ultimate companion for live football scores, statistics, and news from around the globe. Never miss a moment with real-time updates and in-depth analysis.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Instagram">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">Live Matches</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Upcoming Fixtures</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Completed Games</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Top Leagues</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Player Stats</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Team Profiles</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Help & FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Stay Updated</h3>
+                    <p class="text-sm mb-4">Subscribe to our newsletter for the latest football news and updates.</p>
+                    <form>
+                        <input type="email" placeholder="Your email address" 
+                               class="w-full px-4 py-2 rounded-lg bg-gray-700 dark:bg-gray-800 border border-gray-600 dark:border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-3">
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 dark:border-gray-900 mt-10 pt-8 text-center text-sm">
+                <p>&copy; 2025 KickOff!. All rights reserved. Designed with <i class="fas fa-heart text-red-500 mx-1"></i> by YourName.</p>
+                <p class="mt-2">Disclaimer: All data is provided for informational purposes only. Official sources should always be consulted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

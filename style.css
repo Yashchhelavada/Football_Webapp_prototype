@@ -1,0 +1,77 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Changed font to Roboto for a cleaner look */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Custom scrollbar for secondary nav on smaller screens if needed */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Active navigation item in secondary nav */
+.nav-item.active {
+    border-bottom-color: #3b82f6; /* Tailwind blue-500 */
+}
+
+/* Match Card Hover Effect */
+.match-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Loading Spinner Animation */
+.loading-spinner {
+    border-top-color: #3b82f6; /* Tailwind blue-500 */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Theme Toggle Button Effect */
+.theme-toggle {
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Match Ticker Animations */
+.match-ticker-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.match-ticker {
+    display: inline-block;
+    padding-left: 100%; /* Start off-screen */
+    animation: ticker 30s linear infinite; /* Adjust duration as needed */
+}
+
+/* Pause ticker animation on hover for better readability */
+.match-ticker-container:hover .match-ticker {
+    animation-play-state: paused;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Ensure images (team crests) are correctly displayed in dark mode */
+html.dark img.filter.dark\:invert-0 {
+    /* No inversion needed, assume crests are already dark-mode friendly or handled by the API */
+    filter: none; 
+}
