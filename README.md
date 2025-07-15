@@ -4,12 +4,7 @@ A sleek and modern football web application prototype built using **HTML**, **CS
 
 ## 🌟 Features
 
-- 🏟️ Live Match Scores and Updates  
-- 📅 Completed Match History  
-- 📰 Latest Football News (via free API)  
-- 🎨 Clean and Responsive UI  
-- 💡 Optimized for modern browsers  
-- 🔧 Fully functional frontend prototype
+-
 
 ## 🖼️ Screenshots
 
